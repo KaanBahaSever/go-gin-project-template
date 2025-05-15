@@ -1,0 +1,41 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - Go Web App</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Go Web App</h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    {{if .authenticated}}
+                        <li>Welcome, {{.username}}</li>
+                        <li><a href="/logout">Logout</a></li>
+                    {{else}}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    {{end}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        {{template "content" .}}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{.currentYear}} Go Web App</p>
+        </div>
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+{{end}}
