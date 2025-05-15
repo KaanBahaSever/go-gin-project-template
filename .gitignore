@@ -14,8 +14,8 @@ logs/
 Thumbs.db
 
 # Environment variables
-.env
-.env.*
+#.env
+#.env.*
 
 # Build output
 dist/
